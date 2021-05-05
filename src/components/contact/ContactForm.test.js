@@ -16,3 +16,31 @@ it("formSubmit", () => {
   fireEvent.submit(getByTitle("formSubmit"));
   expect(onSubmit).toBeCalled();
 });
+
+//to make sure that input value changed
+describe("change input", () => {
+  it("test firstname input field", () => {
+    const { getByTitle } = render(<ContactForm />);
+    const input = getByTitle("firstName");
+    fireEvent.change(input, { target: { value: "test-firstname" } });
+    expect(input.value).toBe("test-firstname");
+  });
+  it("test lastname input field", () => {
+    const { getByTitle } = render(<ContactForm />);
+    const input = getByTitle("lastName");
+    fireEvent.change(input, { target: { value: "test-lastname" } });
+    expect(input.value).toBe("test-lastname");
+  });
+  it("test email input field", () => {
+    const { getByTitle } = render(<ContactForm />);
+    const input = getByTitle("email");
+    fireEvent.change(input, { target: { value: "email" } });
+    expect(input.value).toBe("email");
+  });
+  it("test message textarea", () => {
+    const { getByTitle } = render(<ContactForm />);
+    const input = getByTitle("message");
+    fireEvent.change(input, { target: { value: "message" } });
+    expect(input.value).toBe("message");
+  });
+});

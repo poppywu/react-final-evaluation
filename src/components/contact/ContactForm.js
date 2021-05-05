@@ -29,6 +29,7 @@ function ContactForm({ onSubmit }) {
           <div className="firstname">
             <h4>Full Name *</h4>
             <input
+            title="lastName"
               type="text"
               name="firstName"
               placeholder="First Name"
@@ -41,6 +42,7 @@ function ContactForm({ onSubmit }) {
           <div className="lastname">
             <h4>Full Name *</h4>
             <input
+            title="firstName"
               type="text"
               name="lastName"
               placeholder="Last Name"
@@ -55,6 +57,7 @@ function ContactForm({ onSubmit }) {
           <div className="email">
             <h4>Email *</h4>
             <input
+            title="email"
               type="text"
               name="email"
               placeholder="Email"
@@ -69,6 +72,7 @@ function ContactForm({ onSubmit }) {
           <div className="message">
             <h4>Message *</h4>
             <textarea
+            title="message"
               placeholder="Message"
               name="message"
               onChange={handleChange}
