@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Contact.css";
+import ContactForm from "./ContactForm";
 
 function Contact() {
-  const [contact, setContact] = useState(null);
-  const handleChange=(event) => {
-	  const {name,value}=event.target;
-	  setContact(state=>{
-		  return {
-			  ...state,
-			  [name]:value
-		  }
-	  });
-	  
+  
+  const onSubmit=(data) => {
+	  console.log(data);
   }
-  const handleSubmit=(event) => {
-	  event.preventDefault();
-	  console.log(contact);
-  }
+
   return (
     <div className="contact" id="contact">
       <div className="container-fluid">
@@ -59,47 +50,9 @@ function Contact() {
           </div>
           <div className="col-sm-6 col-md-6">
             <div className="contact-form-body">
-              <form onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-sm-6 col-md-6">
-                    <div className="firstname">
-                      <h4>Full Name *</h4>
-                      <input type="text" name="firstName" placeholder="First Name" onChange={handleChange}/>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-6">
-                    <div className="lastname">
-                      <h4>Full Name *</h4>
-                      <input type="text" name="lastName" placeholder="Last Name" onChange={handleChange}/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-12 col-md-12">
-                    <div className="email">
-                      <h4>Email *</h4>
-                      <input type="text" name="email" placeholder="Email" onChange={handleChange}/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-12 col-md-12">
-                    <div className="message">
-                      <h4>Message *</h4>
-                      <textarea placeholder="Message" name="message" onChange={handleChange}></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-                    <div className="submit-contact">
-                      <button className="btn btn-default btn-border">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+
+              <ContactForm onSubmit={onSubmit}/>
+            
             </div>
           </div>
         </div>
